@@ -9,7 +9,11 @@ const Rating = require('./models/rating.model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-app.use(cors());
+app.use(
+	cors({
+		origin: process.env.CORS_ORIGIN,
+	})
+);
 app.use(express.json());
 
 const MONGDODB_URI = process.env.MONGODB_URI;
@@ -322,6 +326,7 @@ app.get('/api/recipes/byId/:id', async (req, res) => {
 	}
 });
 
-app.listen(1337, () => {
-	console.log('Server Is Connected!');
+const port = process.env.PORT || 1337;
+app.listen(port, () => {
+	console.log(`Server is connected on port ${port}!`);
 });

@@ -11,7 +11,6 @@ import Btn from '../../components/Btn';
 import Field from '../../components/Field';
 import baseURL from '../../api/baseURL';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import { COLORS } from '../../constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { fetchUserProfile } from '../../redux/actions/userActionLogin'; //redux
 import { useDispatch } from 'react-redux';
@@ -44,8 +43,9 @@ const Login = (props) => {
 				alert(res.data.error);
 			}
 		} catch (error) {
-			alert(res.data.error);
-			console.log(error);
+			alert('An error occurred during login.');
+			// alert(res.data.error);
+			console.log(error.message);
 		}
 	};
 

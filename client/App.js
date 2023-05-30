@@ -19,7 +19,7 @@ const App = () => {
 	const fetchApi = async () => {
 		try {
 			// const res = await axios.get('http://192.168.50.203:1337/');
-			const res = await axios.get('baseURL');
+			const res = await baseURL.get('/');
 			console.log('Axios connected to Server IP');
 		} catch (error) {
 			console.log(error.message);
